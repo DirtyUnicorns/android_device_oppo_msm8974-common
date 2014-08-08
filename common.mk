@@ -174,7 +174,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGSMDevice=1 \
-    ro.telephony.default_network=9
+    ro.telephony.default_network=9 \
+    ro.telephony.call_ring.multiple=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
