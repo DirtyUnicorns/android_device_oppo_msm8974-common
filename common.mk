@@ -103,7 +103,8 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     camera-wrapper.msm8974 \
     libaudio-resampler \
-    audiod
+    audiod \
+    libqcompostprocbundle
 
 PRODUCT_PACKAGES += \
     libmm-omxcore \
@@ -208,7 +209,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     af.resampler.quality=4 \
     audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=true \
-    use.voice.path.for.pcm.voip=true
+    use.voice.path.for.pcm.voip=true \
+    av.offload.enable=true \
+    av.streaming.offload.enable=true \
+    audio.offload.pcm.enable=true
 
 # QCOM
 PRODUCT_PROPERTY_OVERRIDES += \
