@@ -26,9 +26,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
-    LiveWallpapers \
     LiveWallpapersPicker \
-    VisualizationWallpapers \
     librs_jni
 
 # Omni Packages
