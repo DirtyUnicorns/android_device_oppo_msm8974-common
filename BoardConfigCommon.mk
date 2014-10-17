@@ -115,3 +115,6 @@ TW_NO_USB_STORAGE := true
 TW_INCLUDE_JB_CRYPTO := true
 TW_NO_SCREEN_BLANK := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+
+# External apps on SD
+TARGET_EXTERNAL_APPS = sdcard1
