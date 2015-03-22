@@ -264,6 +264,7 @@ on post-fs-data
 
     chown root system /proc/touchpanel/flashlight_enable
     chmod 0660 /proc/touchpanel/flashlight_enable
+    write /proc/touchpanel/flashlight_enable 1
 
     chown root system /proc/touchpanel/keypad_enable
     chmod 0660 /proc/touchpanel/keypad_enable
