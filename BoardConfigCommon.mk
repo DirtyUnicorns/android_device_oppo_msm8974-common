@@ -142,16 +142,9 @@ TARGET_LDPRELOAD := libNimsWrap.so
 endif
 endif
 
-# TWRP specific build flags
-TW_THEME := portrait_hdpi
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TW_NO_USB_STORAGE := true
-TW_INCLUDE_JB_CRYPTO := false
-TW_NO_SCREEN_BLANK := true
-TW_EXCLUDE_ENCRYPTED_BACKUPS := true
-TW_INCLUDE_L_CRYPTO := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
+RECOVERY_VARIANT := recovery
+endif
 
 # SELinux policies
 # qcom sepolicy
