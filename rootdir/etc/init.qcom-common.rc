@@ -24,6 +24,10 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
+    
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -264,8 +268,6 @@ on post-fs-data
     chmod 0644 /sys/class/timed_output/vibrator/vtg_max
     chmod 0644 /sys/class/timed_output/vibrator/vtg_min
 
-    setprop vold.post_fs_data_done 1
-
     #Create folder for mm-qcamera-daemon
     mkdir /data/camera 0770 media camera
 
@@ -278,7 +280,15 @@ on post-fs-data
     # camera sockets
     mkdir /data/misc/camera 0770 camera camera
 
+    setprop vold.post_fs_data_done 1
+
 on fs
+    #This will safely error out on non-lvm configs
+    restorecon /dev/mapper/lvpool-userdata
+
+    #this fstab was also copied by lvm_init.sh
+    mount_all ./fstab.qcom
+
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
